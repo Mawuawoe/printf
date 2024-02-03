@@ -4,12 +4,10 @@
 
 int _printf(const char * format, ...)
 {
-    va_list (mylist);
-
-    va_start (mylist, format);
-
+    char new_line = '\n';
     int i = 0;
-
+    va_list (mylist);
+    va_start (mylist, format);
     while (*format)
     {
         if(*format != '%')
@@ -37,8 +35,7 @@ int _printf(const char * format, ...)
                 while (str[str_len] != '\0')
                 {
                     str_len++;
-                }
-                
+                }       
                 write(1, str, strlen(str));
                 
                 i = i + str_len;
@@ -50,11 +47,9 @@ int _printf(const char * format, ...)
                 i++;
             }
         }
-        
         format++;
         va_end (mylist);
     }
-    char new_line = '\n';
     write(1, &new_line, 1);
     return(i);
 }
