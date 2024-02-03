@@ -42,8 +42,16 @@ int _printf(const char * format, ...)
                 while (str[str_len] != '\0')
                 {
                     str_len++;
-                }       
-                write(1, str, strlen(str));
+                } 
+                if (str != NULL)
+                {
+                    write(1, str, strlen(str));
+                } 
+                else{
+                    char *q = "(null)";
+                    write(1, q, strlen(q));
+                }     
+                
                 
                 i = i + str_len;
             }
