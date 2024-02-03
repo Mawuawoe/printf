@@ -1,6 +1,9 @@
 #include "main.h"
-
-/*this code prints format string, it have placeholders for c & s and prints %*/
+/**
+ * _printf - prints to stdout formatted text
+ * @ format: format strings with specifiers
+ * Return : no len of strings printed
+*/
 
 int _printf(const char * format, ...)
 {
