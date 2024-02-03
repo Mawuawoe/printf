@@ -8,7 +8,12 @@
 int _printf(const char * format, ...)
 {
     int i = 0;
+    
     va_list (mylist);
+    if (format == NULL)
+    {
+        return(-1);
+    }
     va_start (mylist, format);
     while (*format)
     {
