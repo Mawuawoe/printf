@@ -7,7 +7,6 @@
 
 int _printf(const char * format, ...)
 {
-    char new_line = '\n';
     int i = 0;
     va_list (mylist);
     va_start (mylist, format);
@@ -53,7 +52,6 @@ int _printf(const char * format, ...)
         format++;
         va_end (mylist);
     }
-    write(1, &new_line, 1);
     return(i);
 }
 
