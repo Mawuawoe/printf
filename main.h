@@ -7,5 +7,7 @@
 
 
 int _printf(const char *format, ...);
+int _putchar(char c);
+int get_int(int num);
 
 #endif

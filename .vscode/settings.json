@@ -1,0 +1,5 @@
+{
+    "C_Cpp.errorSquiggles": "enabled",
+    "problems.decorations.enabled": true,
+    "problems.showCurrentInStatus": true
+}

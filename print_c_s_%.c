@@ -61,6 +61,11 @@ int _printf(const char * format, ...)
                 write(1, &a, 1);
                 i++;
             }
+            else if(*format == 'd' || *format == 'i')
+            {
+                int d = get_int(va_arg(mylist, int));
+                i = i + d;
+            }
         }
         format++;
         va_end (mylist);

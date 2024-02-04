@@ -2,8 +2,10 @@
 
 int main (void)
 {
-    printf("Complete the sentence: You %s nothing, Jon Snow.\n", (char *)0);
-
+    int e = 5;
+    int d = _printf("d:%d\n", e);
+    printf("%d\n", d);
+    
 
     return (0);
 }
