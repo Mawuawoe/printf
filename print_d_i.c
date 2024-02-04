@@ -18,7 +18,6 @@ int get_int(int num)
     
     if(num == 0)
     {
-        _putchar(num +'0');
         return(0); 
     }
     n = num / 10;
