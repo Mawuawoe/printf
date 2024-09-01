@@ -1,116 +1,44 @@
 #ifndef MAIN_H
 #define MAIN_H
 #include <stdarg.h>
-#include <stdio.h>
 #include <unistd.h>
-
-#define UNUSED(x) (void)(x)
-#define BUFF_SIZE 1024
-
-/* FLAGS */
-#define F_MINUS 1
-#define F_PLUS 2
-#define F_ZERO 4
-#define F_HASH 8
-#define F_SPACE 16
-
-/* SIZES */
-#define S_LONG 2
-#define S_SHORT 1
+#include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 /**
- * struct fmt - Struct opertaio
+ * struct format - converter for _printf
+ * @ph: type char pointer of the specifier
+ * @function: function for the conversion specifier
  *
- * @fmt: The format.
- * @fn: The function associated with it.
  */
-struct fmt
+
+typedef struct format
 {
-	char fmt;
-	int (*fn)(va_list, char[], int, int, int, int);
-};
-
-
-/**
- * typedef struct fmt fmt_t - Struct operatio
- *
- * @fmt: The format.
- * @fm_t: The function associated with it.
- */
-typedef struct fmt fmt_t;
+	char *ph;
+	int (*function)();
+} convert;
 
 int _printf(const char *format, ...);
-int handle_print(const char *fmt, int *i,
-va_list list, char buffer[], int flags, int width, int precision, int size);
-
-
-
-int print_char(va_list data, char buffer[],
-	int flags, int width, int precision, int size);
-int print_string(va_list data, char buffer[],
-	int flags, int width, int precision, int size);
-int print_percent(va_list data, char buffer[],
-	int flags, int width, int precision, int size);
-
-
-int print_int(va_list data, char buffer[],
-	int flags, int width, int precision, int size);
-int print_binary(va_list data, char buffer[],
-	int flags, int width, int precision, int size);
-int unsig_p(va_list types, char buffer[],
-	int flags, int width, int precision, int size);
-int octal_p(va_list types, char buffer[],
-	int flags, int width, int precision, int size);
-int hexadec_p(va_list types, char buffer[],
-	int flags, int width, int precision, int size);
-int print_hexa_upper(va_list types, char buffer[],
-	int flags, int width, int precision, int size);
-
-int print_hexa(va_list types, char map_to[],
-char buffer[], int flags, char flag_ch, int width, int precision, int size);
-
-
-int print_non_printable(va_list types, char buffer[],
-	int flags, int width, int precision, int size);
-
-
-int var_point(va_list types, char buffer[],
-	int flags, int width, int precision, int size);
-
-
-int flags_p(const char *format, int *i);
-int print_width(const char *format, int *l, va_list arg);
-int exact_p(const char *format, int *i, va_list list);
-int size_p(const char *format, int *i);
-
-
-int print_reverse(va_list types, char buffer[],
-	int flags, int width, int precision, int size);
-
-
-int rotstr13_p(va_list types, char buffer[],
-	int flags, int width, int precision, int size);
-
-
-int char_handle(char c, char buffer[],
-	int flags, int width, int precision, int size);
-int digit_write(int is_positive, int ind, char buffer[],
-	int flags, int width, int precision, int size);
-int buff_num(int ind, char bff[], int flags, int width, int precision,
-	int length, char padd, char extra_c);
-int num_pointer(char buffer[], int ind, int length,
-	int width, int flags, char padd, char extra_c, int padd_start);
-
-int num_unsig(int is_negative, int ind,
-char buffer[],
-	int flags, int width, int precision, int size);
-
-
-int to_print(char);
-int hexa_append(char, char[], int);
-int digit_verify(char);
-
-long int num_convert(long int num, int size);
-long int unsig_convert(unsigned long int num, int size);
+int _putchar(char c);
+/*int get_int(int num);*/
+int print_ch(va_list val);
+int print_string(va_list val);
+int _strlenc(const char *s);
+int _strlen(char *s);
+int print_percentage(void);
+int print_int(va_list args);
+int print_deci(va_list args);
+int print_binary(va_list val);
+int print_unsign_int(va_list args);
+int print_o(va_list val);
+int print_hex(va_list val);
+int print_HEX(va_list val);
+int print_spec_HEX(unsigned int num);
+int print_spec_string(va_list val);
+int print_spec_hex(unsigned long int num);
+int print_pointer(va_list val);
+int print_srevs(va_list args);
+int print_rot_13(va_list args);
 
 #endif
