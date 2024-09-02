@@ -52,5 +52,5 @@ int print_deci_with_flags(va_list args, int flags);
 int print_o_with_flags(va_list val, int flags);
 int print_hex_with_flags(va_list val, int flags);
 int print_HEX_with_flags(va_list val, int flags);
-
+int flags_p(const char *format, int *i)
 #endif
