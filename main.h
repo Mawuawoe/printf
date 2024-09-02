@@ -6,6 +6,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+/* FLAGS */
+#define F_PLUS 1
+#define F_SPACE 2
+#define F_HASH 4
+#define F_MINUS 8
+#define F_ZERO 16
+
 /**
  * struct format - converter for _printf
  * @ph: type char pointer of the specifier
@@ -40,5 +47,10 @@ int print_spec_hex(unsigned long int num);
 int print_pointer(va_list val);
 int print_srevs(va_list args);
 int print_rot_13(va_list args);
+/* Other function prototypes */
+int print_deci_with_flags(va_list args, int flags);
+int print_o_with_flags(va_list val, int flags);
+int print_hex_with_flags(va_list val, int flags);
+int print_HEX_with_flags(va_list val, int flags);
 
 #endif
